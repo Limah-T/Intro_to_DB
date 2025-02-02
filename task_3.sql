@@ -10,5 +10,5 @@ mydb = mysql.connector.connect(host="localhost",
                                )
 
 cursor = mydb.cursor()
-cursor.execute("show tables")
+cursor.execute("SHOW TABLES")
 print(cursor.fetchall())

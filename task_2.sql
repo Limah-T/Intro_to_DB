@@ -37,7 +37,7 @@ cursor.execute("""
 
 
 cursor.execute("""
-                CREATE TABLE order_details(
+                CREATE TABLE Order_Details(
                     orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
                     quantity DOUBLE NOT NULL,
                     order_id INT NOT NULL,

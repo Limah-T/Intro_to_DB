@@ -11,5 +11,11 @@ mydb = mysql.connector.connect(host="localhost",
 
 cursor = mydb.cursor()
 cursor.execute("USE alx_book_store;")
-cursor.execute("DESC books")
-print(cursor.fetchall())
+cursor.execute("""SELECT COLUMN_NAME, COLUMN_TYPE, IS_NULLABLE, COLUMN_DEFAULT, EXTRA
+                FROM INFORMATION_SCHEMA.COLUMNS
+                WHERE TABLE_SCHEMA = 'alx_book_store' AND TABLE_NAME = 'Books'
+              """)
+
+for col in cursor.fetchall():
+    print(col)
+

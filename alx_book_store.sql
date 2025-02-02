@@ -8,10 +8,11 @@ mydb = mysql.connector.connect(host="localhost",
                                password=PASSWORD,
                                database = "alx_book_store"
                                )
-print("Database Created Successfully!")
-print(mydb.get_server_info())
 
 cursor = mydb.cursor()
+cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
+print("Database Created Successfully!")
+print(mydb.get_server_info())
 
 cursor.execute("""
                 CREATE TABLE Authors(

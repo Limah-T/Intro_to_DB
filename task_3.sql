@@ -10,5 +10,6 @@ mydb = mysql.connector.connect(host="localhost",
                                )
 
 cursor = mydb.cursor()
+cursor.execute("USE alx_book_store;")
 cursor.execute("SHOW TABLES")
 print(cursor.fetchall())

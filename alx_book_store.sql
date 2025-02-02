@@ -16,14 +16,14 @@ print(mydb.get_server_info())
 
 cursor.execute("""
                 CREATE TABLE Authors(
-                    author_id INT AUTO_INCREMENT PRIMARY KEY,
+                    author_id INT PRIMARY KEY NOT NULL,
                     author_name VARCHAR(215) NOT NULL
                     )
               """)
 
 cursor.execute("""
                CREATE TABLE Books (
-                    book_id INT AUTO_INCREMENT PRIMARY KEY,
+                    book_id INT PRIMARY KEY NOT NULL,
                     title VARCHAR(130) NOT NULL,
                     author_id INT NOT NULL,
                     price DOUBLE(10, 2) NOT NULL,
@@ -34,7 +34,7 @@ cursor.execute("""
 
 cursor.execute("""
                 CREATE TABLE Customers(
-                    customer_id INT AUTO_INCREMENT PRIMARY KEY,
+                    customer_id INT PRIMARY KEY NOT NULL,
                     customer_name VARCHAR(215) NOT NULL,
                     email VARCHAR(215) NOT NULL,
                     address TEXT NOT NULL
@@ -44,7 +44,7 @@ cursor.execute("""
 
 cursor.execute("""
                 CREATE TABLE Orders(
-                    order_id INT AUTO_INCREMENT PRIMARY KEY,
+                    order_id INT PRIMARY KEY NOT NULL,
                     customer_id INT NOT NULL,
                     order_date DATE,
                     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
@@ -54,7 +54,7 @@ cursor.execute("""
 
 cursor.execute("""
                 CREATE TABLE Order_Details(
-                    orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
+                    orderdetailid INT PRIMARY KEY NOT NULL,
                     quantity DOUBLE NOT NULL,
                     order_id INT NOT NULL,
                     book_id INT NOT NULL,
